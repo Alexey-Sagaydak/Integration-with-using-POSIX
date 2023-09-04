@@ -25,7 +25,7 @@ void* calculate_integral_part(void* threadid) {
     double step = buff->step;
 
     for (double x = buff->start_point; x < buff->end_point - 0.00000001; x += step * 3)
-        temp_sum += 1.0 * math_function(x) + 3.0 * math_function(x + step) + 3.0 * math_function(x + step * 2.0) + 1.0 * math_function(x + step * 3.0);
+        temp_sum += math_function(x) + 3 * math_function(x + step) + 3 * math_function(x + step * 2) + math_function(x + step * 3);
 
     ((integration_params*)threadid)->sum = temp_sum;
 
